@@ -37,7 +37,7 @@
                       <th scope="row">{{ $user->id }}</th>
                       <td>{{ $user->username }}</td>
                       <td>{{ $user->email }}</td>
-                      <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info mr-2">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                      <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info mr-2">Edit</a> 
                     </tr>
                  
                     @endforeach

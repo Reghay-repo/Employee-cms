@@ -91,4 +91,11 @@
                 </form>
             </div>
         </div>
+        <div class="mt-2 ml-2">
+            <form action="{{ route('user.destroy', $user->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">Delete {{ $user->username }}</button>
+            </form>
+        </div>
 @endsection
