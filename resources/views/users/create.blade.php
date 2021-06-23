@@ -10,7 +10,12 @@
         </div>
 
         <div class="card">
-            <div class="card-header">Create New User</div>
+            <div class="card-header">
+                Create New User
+                <div class="float-right">
+                    <a href="{{ route('user.index') }}" class="btn btn-info">Go back</a>
+                </div>
+            </div>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('user.store') }}">
