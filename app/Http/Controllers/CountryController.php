@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests\CountryStoreRequest;
+use App\Http\Requests\CountryUpdateRequest;
 
 class CountryController extends Controller
 {
@@ -30,7 +31,22 @@ class CountryController extends Controller
         return  redirect()->route('countries.index')->with('message', 'Country saved ');
     }
 
-    public function edit() {
-        //
+    public function edit(Country $country) {
+        
+        return view('countries.edit', compact('country'));
+    }
+
+    public function update(CountryUpdateRequest $request, Country $country) {
+        $country->update($request->validated());
+
+        return redirect()->route('countries.index')->with('message', 'country updated');
+    }
+    
+    public function destroy(Country $country){
+        
+        $country->delete();
+        
+        return redirect()->route('countries.index')->with('message', 'country deleted');
+
     }
 }
