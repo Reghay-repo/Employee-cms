@@ -6,14 +6,14 @@
     
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">States</h1>
+            <h1 class="h3 mb-0 text-gray-800">Cities</h1>
         </div>
 
         <div class="card">
             <div class="card-header">
-                Edit State
+                Edit City
                 <div class="float-right">
-                    <a href="{{ route('states.index') }}" class="btn btn-info">Go back</a>
+                    <a href="{{ route('cities.index') }}" class="btn btn-info">Go back</a>
                 </div>
             </div>
 
@@ -22,17 +22,17 @@
      
 
             <div class="card-body">
-                <form method="POST" action="{{ route('states.update', $state->id) }}">
+                <form method="POST" action="{{ route('cities.update', $city->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="country_code" class="col-md-4 col-form-label text-md-right">{{ __('Country Code') }}</label>
+                        <label for="country_code" class="col-md-4 col-form-label text-md-right">{{ __('State Name') }}</label>
         
                         <div class="col-md-6" >
-                            <select name="country_id" class="form-control" aria-label="Default select example">
-                                <option selected>Selec a contry</option>
-                                @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            <select name="state_id" class="form-control" aria-label="Default select example">
+                                <option selected>Selec a State</option>
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>
 
@@ -66,18 +66,20 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                Update 
+                                Update  
                             </button>
                         </div>
                     </div>
                 </form>
-                <div class="mt-4 ml-2">
-                    <form action="{{ route('states.destroy', $state->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger">Delete {{ $state->name }}</button>
-                    </form>
-                </div>
+                  {{-- Delete user --}}
+           <div class="mt-4 ml-2">
+                <form action="{{ route('cities.destroy', $city->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Delete {{ $city->name }}</button>
+                </form>
+             </div>
             </div>
+                 
         </div>
 @endsection
