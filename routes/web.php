@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ChangePasswordController;
 
@@ -35,3 +36,5 @@ Route::resource('countries', CountryController::class);
 Route::resource('states', StateController::class);
 //city routes
 Route::resource('cities', CityController::class);
+//department routes
+Route::resource('departments', DepartmentController::class);
